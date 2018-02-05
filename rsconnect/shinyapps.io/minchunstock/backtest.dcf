@@ -1,0 +1,10 @@
+name: backtest
+title: Backtest
+account: minchunstock
+server: shinyapps.io
+appId: 152527
+bundleId: 889136
+url: https://minchunstock.shinyapps.io/backtest/
+when: 1498979441.96449
+asMultiple: FALSE
+asStatic: FALSE

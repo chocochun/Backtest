@@ -1,0 +1,38 @@
+---
+title: "Backtest"
+author: "https://minchun.shinyapps.io/backtest/"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Input                                 | Value
+--------------------------------      | ----------------------------------------
+Stock                                 | `r input$test_stock`
+Benchmark                             | `r input$test_target`
+Analysis Date range                   | `r input$test_dates[1]`  ~ `r input$test_dates[2]`
+Plot 1 Scale                          | `r input$test_scale_plot1`
+Transformation                        | `r input$test_transform`
+Open                                  | `r input$test_direction` 
+Stoploss(%)                           | `r input$stoploss`    
+Index1                                | `r input$test_index`
+Differentiation                       | `r input$test_differential`
+Strategy using Criteria2              | `r input$test_diff_index_strategy`
+Based on                              | `r input$test_useIndex1`
+Index2                                | `r input$test_diff_index`
+Index Scale                           | `r input$test_indexscale`
+Index Threhold                        | `r input$test_num`
+Open Consective Threhold              | `r input$test_open`
+Close Consective Threhold             | `r input$test_close`
+
+```{r backtest, echo=FALSE}
+tradedata <- plot_backtest(input)
+tradedata$plot_backtest
+```
+
+```{r pressure, echo=FALSE}
+kable(table_tradinganalyse(tradedata, input)) 
+```
